@@ -84,7 +84,7 @@
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" style="color:gray; text-decoration:none "aria-expanded="false"><b>・・・</b><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <% if(session.User.id==feed.id_user) {%>
+                      <% if(session.User.id==feed.id_user.id) {%>
                         <li><a href="/post/delete/<%=feed.id%>">Delete Post</a></li>
                       <% } %>
                     </ul>
