@@ -1,0 +1,24 @@
+<br><br><br><br><br><br><br><br>
+<style>
+.postbox{
+  max-width: 600px;
+  padding: 19px 29px 29px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+}
+</style>
+<div class="container">
+  <div class="postbox">
+    <form action="/post/create" method="POST" class="form" style="background-color:white">
+      <h4 class="intro">Create your post</h4>
+      <br>
+      <textarea class="form-control" placeholder="What's in your mind ?" name="content"></textarea>
+      <br>
+      <h5 style="color:gray">Image URL :</h5>
+      <input type="text" class="form-control" placeholder="Link Image" name="image">
+      <br />
+
+      <input type="submit" class="btn btn-lg btn-primary btn-block" value="Post"/>
+    </form>
+  </div>
+</div>

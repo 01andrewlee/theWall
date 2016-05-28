@@ -1,0 +1,49 @@
+.form-signup {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  opacity: .90; /* Standard: FF gt 1.5, Opera, Safari, CSS3 */
+   filter: alpha(opacity=90); /* IE lt 8 */
+   -ms-filter: "alpha(opacity=90)"; /* IE 8 */
+   -khtml-opacity: .90; /* Safari 1.x */
+   -moz-opacity: .90; /* FF lt 1.5, Netscape */
+  border: 0px solid #9EC03B;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+.intro{
+  text-align: center;
+  color: #939393;
+}
+.form-signup input[type="text"],
+.form-signup input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+.form-signup-whiteBox {
+  max-width: 300px;
+  padding: 10px 29px 3px;
+  margin: 0 auto 20px;
+  margin-top: 10px;
+  background-color: #FFFFFF;
+  opacity: .90; /* Standard: FF gt 1.5, Opera, Safari, CSS3 */
+   filter: alpha(opacity=90); /* IE lt 8 */
+   -ms-filter: "alpha(opacity=90)"; /* IE 8 */
+   -khtml-opacity: .90; /* Safari 1.x */
+   -moz-opacity: .90; /* FF lt 1.5, Netscape */
+}
+
+body {
+     margin: 0;
+     background: url('../images/background.jpg');
+     background-size: cover;
+     background-position: center center;
+     background-attachment: fixed;;
+     display: compact;
+     font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

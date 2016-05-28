@@ -1,0 +1,75 @@
+<br><br><br>
+<style>
+.wall {
+  max width: 80%;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  margin-top: 20px;
+  background-color: #EDEDED;
+}
+.well {
+  max-width: 400px;
+  min-height: 200px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  border: 0px solid #9EC03B;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  opacity: 1; /* Standard: FF gt 1.5, Opera, Safari, CSS3 */
+   filter: alpha(opacity=100); /* IE lt 8 */
+   -ms-filter: "alpha(opacity=100)"; /* IE 8 */
+   -khtml-opacity: 1; /* Safari 1.x */
+   -moz-opacity: 1; /* FF lt 1.5, Netscape */
+}
+.title {
+  max width: 80%;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+}
+</style>
+<div class="container">
+  <div class="wall">
+    <div class="title">
+      <h1><%=user.username%></h1>
+      <h4 style="color:gray"><%=user.name%></h4>
+      <br>
+      <h4 style="color:gray">Bio:</h4>
+      <p style="margin-left:5px"><%=user.bio%></p>
+    </div>
+    <br><br><br>
+    <% _.each(feeds, function(feed){ %>
+        <div class="well">
+          <div class="col-xs-7">
+            <p><a style="color:black; font-size:16px; text-decoration:none"href="/<%=user.username%>"><b><%=user.username%></b></a></p>
+          </div>
+            <% if(session.authenticated) { %>
+              <div class="col-xs-5">
+                <ul style="list-style-type:none">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" style="color:gray; text-decoration:none "aria-expanded="false"><b>・・・</b><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <% if(session.User.id==feed.id_user) {%>
+                        <li><a href="/post/delete/<%=feed.id%>">Delete Post</a></li>
+                      <% } %>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            <% } %>
+            <br><br>
+            <p style="color:gray; font-size:11px;">
+              Date posted:
+              <% var date=new Date(feed.createdAt)%>
+              <%= date.getDay()%>/<%=date.getMonth()+1%>-<%=date.getFullYear()%>
+            </p>
+            <a href="<%=feed.image%>"><img src="<%=feed.image%>" alt="<%=feed.image%>"></a>
+            <p><%=feed.content%></p>
+        </div>
+    <% }) %>
+      </div>
+</div>

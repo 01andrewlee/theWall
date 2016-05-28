@@ -1,0 +1,35 @@
+<br><br><br><br>
+<style>
+  .img-thumbnail{
+    padding: 2% 20% 7%;
+    background-color:transparent;
+    border-color: transparent;
+  }
+</style>
+<div class="row">
+    <form action="/session/create" method="POST" class="form-login">
+      <img src="images/the Wall.png" alt="Wall" class="img-thumbnail">
+      <% if(flash) { %>
+          <% if(flash.err) { %>
+              <div class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only">Error:</span>
+                  <% Object.keys(flash.err).forEach(function(error){ %>
+                      <%= flash.err[error] %>
+                  <% }) %>
+              </div>
+          <% } %>
+      <% } %>
+      <input type="text" class="form-control" placeholder="Email" name="email">
+
+      <input type="password" class="form-control" placeholder="Password" name="password">
+
+      <br />
+
+      <input type="submit" class="btn btn-lg btn-primary btn-block" value="Log in"/>
+    </form>
+
+    <div class="whiteBox">
+      <p>Don't have an account? <a href="/"> Sign up</a></p>
+    </div>
+</div>

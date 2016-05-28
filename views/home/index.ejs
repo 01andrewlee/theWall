@@ -1,0 +1,106 @@
+<br><br>
+<% if(!session.authenticated) {%>
+  <br><br>
+  <style>
+  .img-thumbnail{
+    padding: 20% 15% 15% 10%;
+    background-color:transparent;
+    border-color: transparent;
+  }
+  </style>
+<div class="row">
+  <div class="col-md-6">
+    <img src="images/the Wall.png" alt="Wall" class="img-thumbnail">
+  </div>
+  <div class="col-md-3">
+    <form action="/user/create" method="POST" class="form-signup">
+      <h4 class="intro">Sign up to see what your friends left on the wall, for you.</h4>
+      <hr>
+      <% if(flash) { %>
+          <% if(flash.err) { %>
+              <div class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only">Error:</span>
+                  <% Object.keys(flash.err).forEach(function(error){ %>
+                      <%= flash.err[error] %>
+                  <% }) %>
+              </div>
+          <% } %>
+      <% } %>
+      <input type="text" class="form-control" placeholder="Full name" name="name">
+
+      <input type="text" class="form-control" placeholder="User name" name="username">
+
+      <input type="text" class="form-control" placeholder="Email address" name="email">
+
+      <input type="password" class="form-control" placeholder="Password" name="password">
+
+      <input type="password" class="form-control" placeholder="Re-type password" name="confirmation">
+      <br />
+
+      <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account"/>
+    </form>
+    <div class="form-signup-whiteBox"
+      <p>Have an account? <a href="/login">Log in</a></p>
+    </div>
+
+  </div>
+</div>
+
+<!--This is after login-->
+
+<% } else { %>
+  <style>
+  .wallbkgrd{
+    max-width: 80%;
+    min-height: 800px;
+    padding: 19px 29px 29px;
+    background-color: #EDEDED;
+  }
+  .well {
+    max-width: 400px;
+    min-height: 200px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    margin-top: 20px;
+    background-color: #FFFFFF;
+    border: 0px solid #9EC03B;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+  }
+  </style>
+  <br><br>
+  <div class="container wallbkgrd">
+    <br><br><br>
+    <% _.each(feeds, function(feed){ %>
+        <div class="well">
+          <div class="col-xs-7">
+            <p><a style="color:black; font-size:16px; text-decoration:none"href="/<%=feed.id_user.username%>"><b><%=feed.id_user.username%></b></a></p>
+          </div>
+            <% if(session.authenticated) { %>
+              <div class="col-xs-5">
+                <ul style="list-style-type:none">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" style="color:gray; text-decoration:none "aria-expanded="false"><b>・・・</b><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <% if(session.User.id==feed.id_user) {%>
+                        <li><a href="/post/delete/<%=feed.id%>">Delete Post</a></li>
+                      <% } %>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            <% } %>
+          <br><br>
+          <p style="color:gray; font-size:11px;">
+            Date posted:
+            <% var date=new Date(feed.createdAt)%>
+            <%= date.getDay()%>/<%=date.getMonth()+1%>-<%=date.getFullYear()%>
+          </p>
+          <a href="<%=feed.image%>"><img src="<%=feed.image%>" alt="<%=feed.image%>"></a>
+          <p><%=feed.content%></p>
+        </div>
+    <% }) %>
+  </div>
+<%} %>

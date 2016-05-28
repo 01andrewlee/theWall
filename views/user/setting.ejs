@@ -1,0 +1,77 @@
+<br><br><br><br><br><br><br><br>
+<style>
+.wall{
+  max-width: 400px;
+  padding: 10px 29px 10px;
+  margin: 0 auto 20px;
+  margin-top: 10px;
+  background-color: white;
+  text-align: center;
+}
+.form-settings input[type="text"]{
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+.btn-single {
+  font-size: 16px;
+  height: 34px;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+.btn-double {
+  font-size: 16px;
+  height: 86px;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+.btn-double2 {
+  font-size: 16px;
+  height: 90px;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+</style>
+<div class="container wall">
+  <h4 style="color:gray">Edit your information</h4>
+  <br>
+    <form action="/user/editname">
+        <!-- <input value="<%=session.User.name%>" name="name"/> -->
+        <div class="col-xs-8">
+          <input type="text" class="form-control" placeholder="New Name" name="name"/>
+        </div>
+        <div class="col-xs-4">
+        <button type="submit" class="btn btn-lg btn-primary btn-single btn-block">Edit</button>
+      </div>
+    </form>
+    <br>
+    <form action="/user/editusername">
+      <div class="col-xs-8">
+        <input type="text" class="form-control" placeholder="New Username" name="username"/>
+      </div>
+        <div class="col-xs-4">
+        <button type="submit" class="btn btn-lg btn-primary btn-single btn-block">Edit</button>
+      </div>
+    </form>
+    <br>
+    <form action="/user/editpassword">
+      <div class="col-xs-8">
+      <input type="text" class="form-control" placeholder="Old Password" name="old_password"/>
+      <br>
+      <input type="text" class="form-control" placeholder="New Password" name="new_password"/>
+    </div>
+    <div class="col-xs-4">
+      <button type="submit" class="btn btn-lg btn-primary btn-double btn-block">Edit</button>
+    </div>
+    </form>
+    <form action="/user/createbio">
+      <div class="col-xs-8">
+        <textarea style="height:90px" class="form-control" placeholder="More about yourself?" name="bio"></textarea>
+      </div>
+        <div class="col-xs-4">
+        <button type="submit" class="btn btn-lg btn-primary btn-double2 btn-block">Edit</button>
+      </div>
+    </form>
+
+</div>
