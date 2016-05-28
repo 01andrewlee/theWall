@@ -98,7 +98,7 @@
             <% var date=new Date(feed.createdAt)%>
             <%= date.getDay()%>/<%=date.getMonth()+1%>-<%=date.getFullYear()%>
           </p>
-          <a href="<%=feed.image%>"><img src="<%=feed.image%>" alt="<%=feed.image%>"></a>
+          <a href="<%=feed.image%>"><img src="<%=feed.image%>" alt="<%=feed.image%>" class="img img-responsive"></a>
           <p><%=feed.content%></p>
         </div>
     <% }) %>
